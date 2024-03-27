@@ -1,0 +1,15 @@
+p == &i:
+O valor dessa expressão será do tipo booleano (verdadeiro ou falso), já que se trata de uma expressão lógica. 
+Nesse caso, retornará o valor 1, que representa verdadeiro na base binária, pois a variável “p” é do tipo 
+ponteiro para inteiro e guarda o endereço de memória da variável “i” do tipo inteiro.
+ *p - *q:
+O valor dessa expressão será a subtração do conteúdo no endereço de memória guardado em “p” pelo conteúdo 
+no endereço de memória guardado em “q”, logo será a operação “3 - 5”, resultando em “-2”.
+**&p:
+Esta expressão deve ser lida da direita para a esquerda, assim ela retornará o conteúdo do conteúdo do 
+que está guardado no endereço de memória da variável “p”. Logo, será o valor da variável “i” (já que é o seu 
+endereço de memória que está contido em “p”), 3.
+3 - *p/(*q) + 7:
+A expressão deve resolver o que está em parênteses, depois a divisão e ser lida da esquerda para a direita. 
+Assim, deve ser efetuada a divisão do conteúdo do endereço de memória guardado em “p” pelo de “q”. Como são 
+valores do tipo inteiro, resultará em um valor do tipo inteiro: ⅗ = 0. Dessa forma, o cálculo será: 3 - 0 + 7 = 10.
