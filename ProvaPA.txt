@@ -6,13 +6,19 @@ Matrícula: 20220013738
 
 Questão 1:  
 * p == &i:
-O valor dessa expressão será do tipo booleano (verdadeiro ou falso), já que se trata de uma expressão lógica. Nesse caso, retornará o valor 1, que representa verdadeiro na base binária, pois a variável “p” é do tipo ponteiro para inteiro e guarda o endereço de memória da variável “i” do tipo inteiro.
+O valor dessa expressão será do tipo booleano (verdadeiro ou falso), já que se trata de uma expressão lógica. Nesse caso, retornará o
+valor 1, que representa verdadeiro na base binária, pois a variável “p” é do tipo ponteiro para inteiro e guarda o endereço de memória
+da variável “i” do tipo inteiro.
 *  *p - *q:
-O valor dessa expressão será a subtração do conteúdo no endereço de memória guardado em “p” pelo conteúdo no endereço de memória guardado em “q”, logo será a operação “3 - 5”, resultando em “-2”.
+O valor dessa expressão será a subtração do conteúdo no endereço de memória guardado em “p” pelo conteúdo no endereço de memória
+guardado em “q”, logo será a operação “3 - 5”, resultando em “-2”.
 * **&p:
-Esta expressão deve ser lida da direita para a esquerda, assim ela retornará o conteúdo do conteúdo do que está guardado no endereço de memória da variável “p”. Logo, será o valor da variável “i” (já que é o seu endereço de memória que está contido em “p”), 3.
+Esta expressão deve ser lida da direita para a esquerda, assim ela retornará o conteúdo do conteúdo do que está guardado no endereço de
+memória da variável “p”. Logo, será o valor da variável “i” (já que é o seu endereço de memória que está contido em “p”), 3.
 * 3 - *p/(*q) + 7:
-A expressão deve resolver o que está em parênteses, depois a divisão e ser lida da esquerda para a direita. Assim, deve ser efetuada a divisão do conteúdo do endereço de memória guardado em “p” pelo de “q”. Como são valores do tipo inteiro, resultará em um valor do tipo inteiro: ⅗ = 0. Dessa forma, o cálculo será: 3 - 0 + 7 = 10.
+A expressão deve resolver o que está em parênteses, depois a divisão e ser lida da esquerda para a direita. Assim, deve ser efetuada a
+divisão do conteúdo do endereço de memória guardado em “p” pelo de “q”. Como são valores do tipo inteiro, resultará em um valor do tipo
+inteiro: ⅗ = 0. Dessa forma, o cálculo será: 3 - 0 + 7 = 10.
 
 
 
@@ -31,36 +37,52 @@ p+1 = 4096
 
 --------------------------- 
 Questão 3:   
-p = &i;                        Verdadeiro
-*q = &j;                        Falso
-p = &*&i;                Verdadeiro
-i = (*&)j;                Falso, pois a maneira como estão dispostos os parênteses não está de acordo com a sintaxe.
-i = *&j;                        Verdadeiro
-i = *&*&j;                 Verdadeiro
-q = *p;                        Falso, porque ‘q’ é um ponteiro, ou seja, não recebe conteúdos, apenas endereços.
-i = (*p)++ + q;                Falso, porque independente do valor atribuído a ‘p’ e ‘q’, o ‘(*p)++’ só será executado após a linha atual.
+p = &i;                 Verdadeiro
+*q = &j;                Falso, pois você está tentando atribuir o endereço de 'j' para onde 'q' aponta, o que não é permitido se
+'q' for apenas um ponteiro simples.
+p = &*&i;               Verdadeiro
+i = (*&)j;              Falso, pois a maneira como estão dispostos os parênteses não está de acordo com a sintaxe.
+i = *&j;                Verdadeiro
+i = *&*&j;              Verdadeiro
+q = *p;                 Falso, porque ‘q’ é um ponteiro, ou seja, não recebe conteúdos, apenas endereços.
+i = (*p)++ + q;         Falso, porque independente do valor atribuído a ‘p’ e ‘q’, o ‘(*p)++’ só será executado após a linha atual.
 
 
 --------------------------- 
 Questão 4:   
-1. “p1” é um ponteiro para inteiro e recebe o endereço de memória da variável “valor”, então ao alterar o valor do conteúdo do endereço de “p1”, também se altera o valor da variável “valor”, que antes era 10 passa para 20.
-2. “p2” é um ponteiro para valor em ponto flutuante e recebe o endereço de memória da variável “temp”. Quando alteramos o valor do conteúdo de “p2” para 29.0, também alteramos o valor da variável “temp”, a qual era 26.5. Logo, é impresso na tela o valor 29.0.
-3. “p3” é um ponteiro para (caractere) e recebe o endereço de memória do primeiro elemento do vetor “nome”. A variável do tipo char “aux” recebe o conteúdo de “p3”, ou seja, o primeiro elemento de “nome”, P.
-4. “p3” recebe o endereço de memória do quinto elemento do vetor “nome”. A variável “aux” recebe o conteúdo de p3, ou seja, o quinto elemento de “nome”. Assim, será impresso na tela a letra e.
-5. Em C, o identificador de um vetor retorna o endereço de memória do primeiro elemento do vetor. Dessa forma, “p3” recebe o endereço de memória do primeiro elemento do vetor “nome”. Será impresso na tela o conteúdo de “p3”, a letra P.
-6. “p3” recebe o seu endereço de memória + 4, o que significa o endereço de memória de 4 elementos à frente de “p3” (o endereço de memória do quinto elemento do vetor “nome”). Será impresso na tela a letra e.
-7. “p3” recebe o endereço de memória de um elemento anterior ao que ele já guarda, ou seja, do quarto elemento do vetor “nome”, a letra t.
-8. Em C, o identificador de um vetor retorna o endereço de memória do primeiro elemento do vetor. Assim, “p4” é um ponteiro para inteiro e recebe o endereço de memória do primeiro elemento do vetor “vetor”. A variável “idade" recebe o conteúdo de “p4”, e imprime na tela o valor 31.
-9. “p5” é um ponteiro do tipo inteiro e recebe o endereço de memória à frente do endereço de “p4”, ou seja, do segundo elemento do “vetor”. A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 45.
-10.  “p4” recebe o endereço de memória do elemento à frente de “p5”, ou seja, do terceiro elemento de “vetor”.  A variável “idade" recebe o conteúdo de “p4”, e imprime na tela o valor 27.
-11. “p4” recebe o endereço de memória de dois elementos antes do endereço que ela já possuía, ou seja, o primeiro elemento de “vetor”. A variável “idade" recebe o conteúdo de “p4”, e imprime na tela o valor 31.
-12. “p5” recebe o endereço de memória de um elemento antes do endereço de memória do terceiro elemento de “vetor”, ou seja, do segundo elemento de “vetor”.A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 45.
-13. “p5” recebe o endereço de memória do elemento à frente do endereço que ele possui, ou seja, do terceiro elemento de “vetor”. A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 27.
+1. “p1” é um ponteiro para inteiro e recebe o endereço de memória da variável “valor”, então ao alterar o valor do conteúdo do endereço
+de “p1”, também se altera o valor da variável “valor”, que antes era 10 passa para 20.
+2. “p2” é um ponteiro para valor em ponto flutuante e recebe o endereço de memória da variável “temp”. Quando alteramos o valor do
+conteúdo de “p2” para 29.0, também alteramos o valor da variável “temp”, a qual era 26.5. Logo, é impresso na tela o valor 29.0.
+3. “p3” é um ponteiro para (caractere) e recebe o endereço de memória do primeiro elemento do vetor “nome”. A variável do tipo char 
+“aux” recebe o conteúdo de “p3”, ou seja, o primeiro elemento de “nome”, P.
+4. “p3” recebe o endereço de memória do quinto elemento do vetor “nome”. A variável “aux” recebe o conteúdo de p3, ou seja, o quinto 
+elemento de “nome”. Assim, será impresso na tela a letra e.
+5. Em C, o identificador de um vetor retorna o endereço de memória do primeiro elemento do vetor. Dessa forma, “p3” recebe o endereço de 
+memória do primeiro elemento do vetor “nome”. Será impresso na tela o conteúdo de “p3”, a letra P.
+6. “p3” recebe o seu endereço de memória + 4, o que significa o endereço de memória de 4 elementos à frente de “p3” (o endereço de 
+memória do quinto elemento do vetor “nome”). Será impresso na tela a letra e.
+7. “p3” recebe o endereço de memória de um elemento anterior ao que ele já guarda, ou seja, do quarto elemento do vetor “nome”, a letra
+t.
+8. Em C, o identificador de um vetor retorna o endereço de memória do primeiro elemento do vetor. Assim, “p4” é um ponteiro para inteiro 
+e recebe o endereço de memória do primeiro elemento do vetor “vetor”. A variável “idade" recebe o conteúdo de “p4”, e imprime na tela o 
+valor 31.
+9. “p5” é um ponteiro do tipo inteiro e recebe o endereço de memória à frente do endereço de “p4”, ou seja, do segundo elemento do 
+“vetor”. A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 45.
+10.  “p4” recebe o endereço de memória do elemento à frente de “p5”, ou seja, do terceiro elemento de “vetor”.  A variável “idade" 
+recebe o conteúdo de “p4”, e imprime na tela o valor 27.
+11. “p4” recebe o endereço de memória de dois elementos antes do endereço que ela já possuía, ou seja, o primeiro elemento de “vetor”. A 
+variável “idade" recebe o conteúdo de “p4”, e imprime na tela o valor 31.
+12. “p5” recebe o endereço de memória de um elemento antes do endereço de memória do terceiro elemento de “vetor”, ou seja, do segundo 
+elemento de “vetor”.A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 45.
+13. “p5” recebe o endereço de memória do elemento à frente do endereço que ele possui, ou seja, do terceiro elemento de “vetor”. A 
+variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 27.
 
 
 --------------------------- 
 Questão 5:   
-O código está sendo executado apropriadamente, atribuindo o endereço do primeiro elemento do array ‘vet’ ao ponteiro ‘f’ e alterando os valores junto ao contador ‘i’.
+O código está sendo executado apropriadamente, atribuindo o endereço do primeiro elemento do array ‘vet’ ao ponteiro ‘f’ e alterando os 
+valores junto ao contador ‘i’.
 --------------------------- 
 Questão 6:   
 ‘*(pulo + 2);’ refere-se ao terceiro elemento do vetor.
@@ -79,7 +101,9 @@ Questão 9:
 O programa não será compilado apropriadamente, ocasionando uma saída ‘ERROR!’
 --------------------------- 
 Questão 10:
-A saída desse programa será um alerta de erro de compilação porque usa incorretamente o ponteiro para constante. ‘int const *x = 3’; está tentando atribuir um valor inteiro à variável ponteiro ‘x’, o que não é permitido. Além disso, quando tenta modificar o valor apontado por x através de ++(*x) resulta em mais um erro.
+A saída desse programa será um alerta de erro de compilação porque usa incorretamente o ponteiro para constante. ‘int const *x = 3’; 
+está tentando atribuir um valor inteiro à variável ponteiro ‘x’, o que não é permitido. Além disso, quando tenta modificar o valor 
+apontado por x através de ++(*x) resulta em mais um erro.
 Para corrigir o problema, é necessário modificar a declaração de ‘x’ para apontar para uma variável inteira e inicializá-la corretamente.
 
 
@@ -125,18 +149,23 @@ int main() {
 
 Questão 12:
 * “aloha[2] = value;” é um comando válido.
-* “scanf("%f", &aloha);” é um comando inválido, pois o formato “%f” espera um argumento do tipo “float”, mas o argumento é do tipo ponteiro para ponteiro para “float”.
+* “scanf("%f", &aloha);” é um comando inválido, pois o formato “%f” espera um argumento do tipo “float”, mas o argumento é do tipo 
+ponteiro para ponteiro para “float”.
 * “aloha = "value";” é um comando inválido, pois o vetor “aloha” é do tipo float e “value” é um vetor do tipo char.
-* “printf("%f", aloha);” é um comando inválido, pois o formato “%f” espera um argumento do tipo float e o identificador “aloha” somente retorna o endereço de memória do primeiro elemento do vetor “aloha”.
+* “printf("%f", aloha);” é um comando inválido, pois o formato “%f” espera um argumento do tipo float e o identificador “aloha” somente 
+retorna o endereço de memória do primeiro elemento do vetor “aloha”.
 * “coisas[4][4] = aloha[3];” é um comando válido.
-* “coisas[5] = aloha;” é um comando inválido, pois “coisas[5]” espera receber um elemento do tipo “float”, mas irá receber um endereço de memória.
+* “coisas[5] = aloha;” é um comando inválido, pois “coisas[5]” espera receber um elemento do tipo “float”, mas irá receber um endereço 
+de memória.
 * “pf = value;” é um comando inválido, pois “pf” é um ponteiro para “float” e “value” é uma variável do tipo float.
-* “pf = aloha;” é um comando válido, pois “pf” é um ponteiro para float e “aloha” é o identificador de um vetor do tipo “float”, o que retorna o endereço de memória de seu primeiro elemento.
+* “pf = aloha;” é um comando válido, pois “pf” é um ponteiro para float e “aloha” é o identificador de um vetor do tipo “float”, o que 
+retorna o endereço de memória de seu primeiro elemento.
 
 
 --------------------------- 
 Questão 13:  
-Memory leak é um erro de código que ocorre quando um trecho de memória previamente alocado para determinado uso, não é liberado quando não tem mais utilidade.
+Memory leak é um erro de código que ocorre quando um trecho de memória previamente alocado para determinado uso, não é liberado quando 
+não tem mais utilidade.
 
 
 EXEMPLO 1:
@@ -151,7 +180,8 @@ int main(void){
    while (1) f();
     return 0;
 }
-No código acima o loop infinito definido na ‘main’ chama a função ‘f’, que executa uma alocação, mas não há ‘free(s)’ para liberar a memória após o uso, causando um Memory Leak.
+No código acima o loop infinito definido na ‘main’ chama a função ‘f’, que executa uma alocação, mas não há ‘free(s)’ para liberar a 
+memória após o uso, causando um Memory Leak.
 
 
 EXEMPLO 2:
@@ -167,7 +197,9 @@ int main() {
     f(5);
     return 0;
 }
-No código acima, temos uma função ‘f’ que é chamada recursivamente com um valor ‘n’ decrementado a cada chamada. Dentro da função, a memória é alocada dinamicamente para um inteiro (int). Mas, a memória alocada para cada chamada recursiva nunca é liberada antes de retornar, causando um Memory Leak.
+No código acima, temos uma função ‘f’ que é chamada recursivamente com um valor ‘n’ decrementado a cada chamada. Dentro da função, a 
+memória é alocada dinamicamente para um inteiro (int). Mas, a memória alocada para cada chamada recursiva nunca é liberada antes de 
+retornar, causando um Memory Leak.
 
 
 EXEMPLO 3:
@@ -197,12 +229,15 @@ int main() {
 
     return 0;
 }
-No código anterior a memória é alocada dinamicamente para um inteiro em cada iteração do loop ‘for’. No entanto, a liberação da memória (free(ptr)) é realizada apenas quando o valor de ‘i’ é par (i % 2 == 0). Isso significa que, nos casos em que ‘i’ é ímpar, a memória alocada não é liberada e ocorre um vazamento de memória.
+No código anterior a memória é alocada dinamicamente para um inteiro em cada iteração do loop ‘for’. No entanto, a liberação da memória 
+(free(ptr)) é realizada apenas quando o valor de ‘i’ é par (i % 2 == 0). Isso significa que, nos casos em que ‘i’ é ímpar, a memória 
+alocada não é liberada e ocorre um vazamento de memória.
 
 
 --------------------------- 
 Questão 14:   
-Um ponteiro para uma função é um ponteiro que armazena o endereço de memória de uma função e pode ser usado para chamar a mesma. Sua sintaxe é: 
+Um ponteiro para uma função é um ponteiro que armazena o endereço de memória de uma função e pode ser usado para chamar a mesma. Sua 
+sintaxe é: 
         tipo_de_retorno (*nome_do_ponteiro) (tipo_do_argumento1, tipo_do_argumento2, …);
 
 
@@ -412,7 +447,8 @@ int main() {
     }
 
 
-    //chamando a função de ordenação personalizada, passando como parâmetro o ponteiro com o endereço de memória da função de comparação escolhida
+    //chamando a função de ordenação personalizada, passando como parâmetro o ponteiro com o endereço de memória da função de comparação 
+escolhida
     ordenacao(numero, n, sizeof(int), funcao);
 
 
@@ -612,19 +648,24 @@ int f(char *data){
   return 0;
 
 
-No programa citado há Memory Leak, pois existem situações (size>50) em que o comando ‘free()’ não é executado. Consequentemente, neste caso, a memória não é liberada após não ser mais necessária.
+No programa citado há Memory Leak, pois existem situações (size>50) em que o comando ‘free()’ não é executado. Consequentemente, neste 
+caso, a memória não é liberada após não ser mais necessária.
 --------------------------- 
 Questão 22:
 15 13 0 
 --------------------------- 
 Questão 23:
 IV. I, apenas.
-O código em questão possui dois caminhos diferentes a serem seguidos para descobrir em qual posição está um número inteiro dentro de um vetor.
+O código em questão possui dois caminhos diferentes a serem seguidos para descobrir em qual posição está um número inteiro dentro de um 
+vetor.
 
 
-A I está correta, pois de acordo com os parâmetros estabelecidos: funcao1(vetor, 15), funcao2(vetor, 15, 0, TAM-1)), o valor 15 se encontra na sétima posição, fazendo com que ambas funções retornem o número 7.
-A II está errada, pois, no pior dos casos a funcao2 seria mais rápida, de acordo com o exemplo, se o valor a ser procurado fosse o ‘19’, a funcao1 teria que fazer 9 repetições antes de encontrar a posição. Já a funcao2, apenas 5, pois que parte de um valor central.
-A III está errada, pois a funcao2 implementa uma estratégia recursiva na concepção do algoritmo, não iterativa. O algoritmo recursivo sempre terá uma chamada a si mesmo. O algoritmo iterativo nunca terá isso.
+A I está correta, pois de acordo com os parâmetros estabelecidos: funcao1(vetor, 15), funcao2(vetor, 15, 0, TAM-1)), o valor 15 se 
+encontra na sétima posição, fazendo com que ambas funções retornem o número 7.
+A II está errada, pois, no pior dos casos a funcao2 seria mais rápida, de acordo com o exemplo, se o valor a ser procurado fosse o ‘19’, 
+a funcao1 teria que fazer 9 repetições antes de encontrar a posição. Já a funcao2, apenas 5, pois que parte de um valor central.
+A III está errada, pois a funcao2 implementa uma estratégia recursiva na concepção do algoritmo, não iterativa. O algoritmo recursivo 
+sempre terá uma chamada a si mesmo. O algoritmo iterativo nunca terá isso.
 --------------------------- 
 Questão 24: 
 
@@ -685,7 +726,6 @@ int main() {
 
 
 
-
     printf("Abaixo os valores:\n");
     for(int i; i<l; i++){
         for(int j; j<c; j++){
@@ -696,12 +736,6 @@ int main() {
         }
         printf("\n");
     }
-
-
-
-
-
-
 
 
     return 0;
