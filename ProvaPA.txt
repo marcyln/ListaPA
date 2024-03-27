@@ -1,0 +1,708 @@
+﻿Nome: Marcelly de Lira Nobrega
+Matrícula: 20220016103
+Nome: Bárbara Lima Cordeiro da Silva
+Matrícula: 20220013738
+
+
+Questão 1:  
+* p == &i:
+O valor dessa expressão será do tipo booleano (verdadeiro ou falso), já que se trata de uma expressão lógica. Nesse caso, retornará o valor 1, que representa verdadeiro na base binária, pois a variável “p” é do tipo ponteiro para inteiro e guarda o endereço de memória da variável “i” do tipo inteiro.
+*  *p - *q:
+O valor dessa expressão será a subtração do conteúdo no endereço de memória guardado em “p” pelo conteúdo no endereço de memória guardado em “q”, logo será a operação “3 - 5”, resultando em “-2”.
+* **&p:
+Esta expressão deve ser lida da direita para a esquerda, assim ela retornará o conteúdo do conteúdo do que está guardado no endereço de memória da variável “p”. Logo, será o valor da variável “i” (já que é o seu endereço de memória que está contido em “p”), 3.
+* 3 - *p/(*q) + 7:
+A expressão deve resolver o que está em parênteses, depois a divisão e ser lida da esquerda para a direita. Assim, deve ser efetuada a divisão do conteúdo do endereço de memória guardado em “p” pelo de “q”. Como são valores do tipo inteiro, resultará em um valor do tipo inteiro: ⅗ = 0. Dessa forma, o cálculo será: 3 - 0 + 7 = 10.
+
+
+
+
+---------------------------  
+
+
+Questão 2:   
+p = 4094 (Hexadecimal)
+p+1 = 4096
+*p+2 = 7 
+**&p = 5 
+3**p = 15 
+**&p+4 = 9
+
+
+--------------------------- 
+Questão 3:   
+p = &i;                        Verdadeiro
+*q = &j;                        Falso
+p = &*&i;                Verdadeiro
+i = (*&)j;                Falso, pois a maneira como estão dispostos os parênteses não está de acordo com a sintaxe.
+i = *&j;                        Verdadeiro
+i = *&*&j;                 Verdadeiro
+q = *p;                        Falso, porque ‘q’ é um ponteiro, ou seja, não recebe conteúdos, apenas endereços.
+i = (*p)++ + q;                Falso, porque independente do valor atribuído a ‘p’ e ‘q’, o ‘(*p)++’ só será executado após a linha atual.
+
+
+--------------------------- 
+Questão 4:   
+1. “p1” é um ponteiro para inteiro e recebe o endereço de memória da variável “valor”, então ao alterar o valor do conteúdo do endereço de “p1”, também se altera o valor da variável “valor”, que antes era 10 passa para 20.
+2. “p2” é um ponteiro para valor em ponto flutuante e recebe o endereço de memória da variável “temp”. Quando alteramos o valor do conteúdo de “p2” para 29.0, também alteramos o valor da variável “temp”, a qual era 26.5. Logo, é impresso na tela o valor 29.0.
+3. “p3” é um ponteiro para (caractere) e recebe o endereço de memória do primeiro elemento do vetor “nome”. A variável do tipo char “aux” recebe o conteúdo de “p3”, ou seja, o primeiro elemento de “nome”, P.
+4. “p3” recebe o endereço de memória do quinto elemento do vetor “nome”. A variável “aux” recebe o conteúdo de p3, ou seja, o quinto elemento de “nome”. Assim, será impresso na tela a letra e.
+5. Em C, o identificador de um vetor retorna o endereço de memória do primeiro elemento do vetor. Dessa forma, “p3” recebe o endereço de memória do primeiro elemento do vetor “nome”. Será impresso na tela o conteúdo de “p3”, a letra P.
+6. “p3” recebe o seu endereço de memória + 4, o que significa o endereço de memória de 4 elementos à frente de “p3” (o endereço de memória do quinto elemento do vetor “nome”). Será impresso na tela a letra e.
+7. “p3” recebe o endereço de memória de um elemento anterior ao que ele já guarda, ou seja, do quarto elemento do vetor “nome”, a letra t.
+8. Em C, o identificador de um vetor retorna o endereço de memória do primeiro elemento do vetor. Assim, “p4” é um ponteiro para inteiro e recebe o endereço de memória do primeiro elemento do vetor “vetor”. A variável “idade" recebe o conteúdo de “p4”, e imprime na tela o valor 31.
+9. “p5” é um ponteiro do tipo inteiro e recebe o endereço de memória à frente do endereço de “p4”, ou seja, do segundo elemento do “vetor”. A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 45.
+10.  “p4” recebe o endereço de memória do elemento à frente de “p5”, ou seja, do terceiro elemento de “vetor”.  A variável “idade" recebe o conteúdo de “p4”, e imprime na tela o valor 27.
+11. “p4” recebe o endereço de memória de dois elementos antes do endereço que ela já possuía, ou seja, o primeiro elemento de “vetor”. A variável “idade" recebe o conteúdo de “p4”, e imprime na tela o valor 31.
+12. “p5” recebe o endereço de memória de um elemento antes do endereço de memória do terceiro elemento de “vetor”, ou seja, do segundo elemento de “vetor”.A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 45.
+13. “p5” recebe o endereço de memória do elemento à frente do endereço que ele possui, ou seja, do terceiro elemento de “vetor”. A variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 27.
+
+
+--------------------------- 
+Questão 5:   
+O código está sendo executado apropriadamente, atribuindo o endereço do primeiro elemento do array ‘vet’ ao ponteiro ‘f’ e alterando os valores junto ao contador ‘i’.
+--------------------------- 
+Questão 6:   
+‘*(pulo + 2);’ refere-se ao terceiro elemento do vetor.
+--------------------------- 
+Questão 7:   
+‘p = mat +1’ é válida pois dita que o ponteiro ‘p’ recebe o endereço do segundo elemento do vetor ‘mat’, ou seja, ‘mat[1]’
+‘p = mat’ é válida pois dita que o ponteiro ‘p’ recebe o endereço do primeiro elemento do vetor ‘mat’, ou seja, ‘mat[0]’
+‘p = mat’, semelhante a anterior.
+‘x = (*mat)’ é válida pois x recebe o conteúdo do primeiro elemento de ‘mat’.
+--------------------------- 
+Questão 8:   
+O primeiro programa imprime cada item do vetor ‘vet’, do primeiro ao último, no formato decimal. ‘4 9 13’.
+O segundo programa imprime cada item do vetor ‘vet’, do primeiro ao último, no formato hexadecimal. ‘4 9 D’.
+--------------------------- 
+Questão 9:   
+O programa não será compilado apropriadamente, ocasionando uma saída ‘ERROR!’
+--------------------------- 
+Questão 10:
+A saída desse programa será um alerta de erro de compilação porque usa incorretamente o ponteiro para constante. ‘int const *x = 3’; está tentando atribuir um valor inteiro à variável ponteiro ‘x’, o que não é permitido. Além disso, quando tenta modificar o valor apontado por x através de ++(*x) resulta em mais um erro.
+Para corrigir o problema, é necessário modificar a declaração de ‘x’ para apontar para uma variável inteira e inicializá-la corretamente.
+
+
+--------------------------- 
+Questão 11: 
+#include <stdio.h>
+
+
+int main() {
+    int x[4];
+    /*Se o x[0] for armazenado no endereço 4092 (na base 10):
+    Se x for declarado como char:
+    x+1 = 4093 \\ x+2 = 4094 \\ x+3 = 4095
+    
+    Se x for declarado como int:
+    x+1 = 4094 \\ x+2 = 4096 \\ x+3 = 4098
+
+
+    Se x for declarado como float:
+    x+1 = 4096 \\ x+2 = 4100 \\ x+3 = 4104
+
+
+    Se x for declarado como double:
+    x+1 = 4100 \\ x+2 = 4108 \\ x+3 = 4116
+    */
+    
+    printf("%p %p %p %p", x, x+1, x+2, x+3);
+    /* Quando compilado, o programa apresentou endereços que seguiam
+    padrão estabelecido, com os bytes sendo alocados em sequência
+    de acordo com o seu tamanho em bits. Por exemplo:
+    Quando x foi declarado como int (dessa vez com 4 bits):
+    x   = 0x7ffd918f8640 
+    x+1 = 0x7ffd918f8644
+    x+2 = 0x7ffd918f8648
+    x+3 = 0x7ffd918f864c
+    O endereço foi aumentando em sequência, de acordo com a posição do
+    item no vetor, só que dessa vez, na base hexadecimal.*/
+}
+
+
+--------------------------- 
+
+
+Questão 12:
+* “aloha[2] = value;” é um comando válido.
+* “scanf("%f", &aloha);” é um comando inválido, pois o formato “%f” espera um argumento do tipo “float”, mas o argumento é do tipo ponteiro para ponteiro para “float”.
+* “aloha = "value";” é um comando inválido, pois o vetor “aloha” é do tipo float e “value” é um vetor do tipo char.
+* “printf("%f", aloha);” é um comando inválido, pois o formato “%f” espera um argumento do tipo float e o identificador “aloha” somente retorna o endereço de memória do primeiro elemento do vetor “aloha”.
+* “coisas[4][4] = aloha[3];” é um comando válido.
+* “coisas[5] = aloha;” é um comando inválido, pois “coisas[5]” espera receber um elemento do tipo “float”, mas irá receber um endereço de memória.
+* “pf = value;” é um comando inválido, pois “pf” é um ponteiro para “float” e “value” é uma variável do tipo float.
+* “pf = aloha;” é um comando válido, pois “pf” é um ponteiro para float e “aloha” é o identificador de um vetor do tipo “float”, o que retorna o endereço de memória de seu primeiro elemento.
+
+
+--------------------------- 
+Questão 13:  
+Memory leak é um erro de código que ocorre quando um trecho de memória previamente alocado para determinado uso, não é liberado quando não tem mais utilidade.
+
+
+EXEMPLO 1:
+#include <stdio.h>
+#include <stdlib.h>
+void f(void){
+    void* s;
+    s = malloc(50);
+    return;
+}
+int main(void){
+   while (1) f();
+    return 0;
+}
+No código acima o loop infinito definido na ‘main’ chama a função ‘f’, que executa uma alocação, mas não há ‘free(s)’ para liberar a memória após o uso, causando um Memory Leak.
+
+
+EXEMPLO 2:
+#include <stdlib.h>
+void f(int n) {
+    if (n <= 0) {
+        return;
+    }
+    int *p = (int *)malloc(sizeof(int));
+    f(n - 1);
+}
+int main() {
+    f(5);
+    return 0;
+}
+No código acima, temos uma função ‘f’ que é chamada recursivamente com um valor ‘n’ decrementado a cada chamada. Dentro da função, a memória é alocada dinamicamente para um inteiro (int). Mas, a memória alocada para cada chamada recursiva nunca é liberada antes de retornar, causando um Memory Leak.
+
+
+EXEMPLO 3:
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void process_data(int *ptr) {
+    // Processa os dados
+    printf("Valor: %d\n", *ptr);
+}
+int main() {
+    int *ptr;
+    for (int i = 0; i < 5; i++) {
+        ptr = (int *)malloc(sizeof(int));
+        if (ptr == NULL) {
+            printf("Falha ao alocar memória.\n");
+            return 1;
+        }
+        *ptr = i;
+        if (i % 2 == 0) {
+            process_data(ptr);
+            free(ptr);
+        }
+    }
+
+
+    return 0;
+}
+No código anterior a memória é alocada dinamicamente para um inteiro em cada iteração do loop ‘for’. No entanto, a liberação da memória (free(ptr)) é realizada apenas quando o valor de ‘i’ é par (i % 2 == 0). Isso significa que, nos casos em que ‘i’ é ímpar, a memória alocada não é liberada e ocorre um vazamento de memória.
+
+
+--------------------------- 
+Questão 14:   
+Um ponteiro para uma função é um ponteiro que armazena o endereço de memória de uma função e pode ser usado para chamar a mesma. Sua sintaxe é: 
+        tipo_de_retorno (*nome_do_ponteiro) (tipo_do_argumento1, tipo_do_argumento2, …);
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+  // Declarando duas funções simples
+int soma(int a, int b) {
+    return a + b;
+}
+
+
+int subtracao(int a, int b) {
+    return a - b;
+}
+
+
+int main() {
+    // Declarando um ponteiro para função que recebe dois inteiros e retorna um inteiro
+    int (*funcao)(int, int);
+
+
+    // Inicializando o ponteiro para apontar para a função soma
+    funcao = soma;
+
+
+    // Chamando a função através do ponteiro
+    printf("Resultado da soma: %d\n", funcao(5, 3));
+
+
+    // Alterando o ponteiro para apontar para a função subtracao
+    funcao = subtracao;
+
+
+    // Chamando a função através do ponteiro
+    printf("Resultado da subtração: %d\n", funcao(5, 3));
+
+
+    return 0;
+}
+
+
+
+
+--------------------------- 
+Questão 15:   
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+    int n;
+    printf("Digite o número de valores: ");
+    scanf("%d", &n);
+    // Aloca dinamicamente memória para armazenar os valores
+    float *valores = (float *)malloc(n * sizeof(float));
+    if (valores == NULL) {
+        printf("Falha ao alocar memória.\n");
+        return 1;
+    }
+    // Lê os valores digitados
+    printf("Digite os valores:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%f", &valores[i]);
+    }
+
+
+    // Organiza os valores em ordem crescente
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (valores[i] > valores[j]) {
+                float temp = valores[i];
+                valores[i] = valores[j];
+                valores[j] = temp;
+            }
+        }
+    }
+
+
+    printf("Valores em ordem crescente:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%.2f ", valores[i]);
+    }
+    printf("\n");
+    // Libera a memória!
+    free(valores);
+
+
+    return 0;
+}
+
+
+
+
+--------------------------- 
+Questão 16:   
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int sub(const void *a, const void *b) {
+    if ( *(float*)a > *(float*)b ) return 1;
+if ( *(float*)a == *(float*)b ) return 0;
+if ( *(float*)a < *(float*)b ) return -1;
+}
+
+
+int main() {
+    int n;
+
+
+    printf("Digite o numero de valores: ");
+    scanf("%d", &n);
+    // Aloca dinamicamente memória para armazenar os valores
+    float *valores = (float *)malloc(n * sizeof(float));
+    if (valores == NULL) {
+        printf("Falha ao alocar memoria.\n");
+        return 1;
+    }
+    // Lê os valores digitados
+    printf("Digite os valores:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%f", &valores[i]);
+    }
+    // Organiza os valores em ordem crescente com qsort
+    qsort(valores, n, sizeof(float), sub);
+
+
+    printf("Valores em ordem crescente:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%.2f ", valores[i]);
+    }
+    printf("\n");
+    // Libera a memória\!
+    free(valores);
+
+
+    return 0;
+}
+
+
+--------------------------- 
+Questão 17:
+#include <stdio.h>
+#include <stdlib.h>
+
+
+//declarando uma função que compara os valores inteiros de forma crescente
+int ordenarCrescente(const void *a, const void *b){
+    return (*(int *)a - *(int *)b);
+}
+
+
+//declarando uma função que compara os valores inteiros de forma decrescente
+int ordenarDecrescente(const void *a, const void *b){
+    return -(*(int *)a - *(int *)b);
+}
+
+
+// função de ordenação personalizada
+void ordenacao(void *base, size_t tamanho, size_t tipo, int (*compar)(const void *a, const void *b)){
+    qsort(base, tamanho, tipo, compar);
+}
+
+
+int main() {
+    int n;
+
+
+    printf("Informe o número de elementos do vetor: ");
+    scanf("%d", &n);
+
+
+    //alocando memória para o vetor
+    int *numero = (int *)malloc(n * sizeof(int));
+
+
+    if(numero == NULL){
+        printf("Falha ao alocar memória.\n");
+        return 1;
+    }
+
+
+    //Lê os valores digitados
+    printf("Digite os valores:\n");
+    for(int i=0; i<n; i++){
+        scanf("%d", &numero[i]);
+    }
+
+
+    //declarando o ponteiro para uma função com dois parâmetros const void* e com retorno do tipo int
+    int (*funcao) (const void *a, const void *b);
+
+
+    //pedindo ao usuário para escolher o tipo de ordenação
+    int tipo_de_comparacao;
+    printf("Para ordenar de forma crescente, digite 1.\nDe forma descrescente, digite 2.\n");
+    scanf("%d", &tipo_de_comparacao);
+
+
+    if(tipo_de_comparacao == 1){
+        funcao = ordenarCrescente;
+    }
+    else{
+        funcao = ordenarDecrescente;
+    }
+
+
+    //chamando a função de ordenação personalizada, passando como parâmetro o ponteiro com o endereço de memória da função de comparação escolhida
+    ordenacao(numero, n, sizeof(int), funcao);
+
+
+    printf("Valores na ordem escolhida:\n");
+    for(int i=0; i<n; i++){
+        if(i<n-1){
+           printf("%d, ", numero[i]);
+        }else{
+            printf("%d;", numero[i]);
+        }
+    }
+    printf("\n");
+
+
+    //libera a memória
+    free(numero);
+
+
+    return 0;
+}
+
+
+
+
+--------------------------- 
+Questão 18: 
+Será usada a função ‘gettimeofday()’ da biblioteca ‘sys/time.h’, a qual fornece um alto nível de precisão e é útil para medir o tempo decorrido.
+Tempo decorrido do problema da questão 16: 13.562088 segundos.
+Tempo decorrido do problema da questão 17: 71.973251 segundos.
+Isso demonstra que, por ser um problema mais complexo, o algoritmo da questão 17 tem um tempo de execução maior do que o da questão 16.
+
+
+#include <stdio.h>
+#include <sys/time.h>
+
+
+int main() {
+    struct timeval start, end;
+    long seconds, microseconds;
+    double elapsed;
+
+
+    gettimeofday(&start, NULL);
+    // Coloque a rotina que deseja medir aqui
+    gettimeofday(&end, NULL);
+
+
+    seconds = end.tv_sec - start.tv_sec;
+    microseconds = end.tv_usec - start.tv_usec;
+    elapsed = seconds + microseconds * 1e-6;
+    printf("Tempo decorrido: %f segundos\n", elapsed);
+
+
+    return 0;
+}
+
+
+--------------------------- 
+Questão 19:   
+#include <stdio.h>
+#include <stdlib.h>
+void soma_vetores(int vet1[], int vet2[], int vet3[], int t){
+    for (int i=0;i<t;i++){
+        vet3[i]=vet1[i]+vet2[i];
+    }
+}
+int main() {
+    int n;
+    scanf("%d", &n);
+    int *v1 = (int *)malloc(n * sizeof(int));
+    int *v2 = (int *)malloc(n * sizeof(int));
+    int *v3 = (int *)malloc(n * sizeof(int));
+    printf("Valores do vetor 1:");
+    for (int i=0;i<n;i++){
+        scanf("%d",&v1[i]);
+    }
+    printf("Valores do vetor 2:");
+    for (int i=0;i<n;i++){
+        scanf("%d",&v2[i]);
+    }
+    soma_vetores(v1,v2,v3,n);
+    printf("Vetor 1: ");
+    for (int i=0;i<n;i++){
+        printf("%d ", v1[i]);}
+    printf("\nVetor 2: ");
+    for (int i=0;i<n;i++){
+        printf("%d ", v2[i]);}
+    printf("\nVetor 1 + vetor 2: ");
+    for (int i=0;i<n;i++){
+        printf("%d ", v3[i]);}
+    free(v1);
+    free(v2);
+    free(v3);
+}
+--------------------------- 
+Questão 20:   
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+
+void multiplica_matrizes(int *a, int *b, int *c, int la, int ca, int cb){
+    int i, j, k;
+    for(i = 0; i < la; i++){
+        for(j = 0; j < cb; j++){
+            c[i*cb + j] = 0;
+            for(k = 0; k < ca; k++){
+                c[i*cb + j] += a[i*ca + k] * b[k*cb + j];
+            }
+        }
+    }
+    return;
+}
+
+
+
+
+
+
+int main(void){
+    int *a, *b, *c;
+    int la, ca, lb, cb;
+    int i, j;
+
+
+    printf("Numero de linhas e colunas da matriz A: ");
+    scanf("%d %d", &la, &ca);
+
+
+    printf("Numero de linhas e colunas da matriz B: ");
+    scanf("%d %d", &lb, &cb);
+
+
+    if(ca != lb){
+        printf("Erro, o numero de colunas da Matriz A deve ser igual ao numero de linhas da Matriz B!\n");
+        return 0;
+    }
+
+
+    a = malloc(la * ca * sizeof(int));
+    b = malloc(lb * cb * sizeof(int));
+    c = malloc(la * cb * sizeof(int));
+
+
+    printf("Elementos da matriz A: \n");
+    for(i = 0; i < la; i++){
+        for(j = 0; j < ca; j++){
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &a[i*ca + j]);
+        }
+    }
+
+
+    printf("Elementos da matriz B: \n");
+    for(i = 0; i < lb; i++){
+        for(j = 0; j < cb; j++){
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &b[i*cb + j]);
+        }
+    }
+
+
+    multiplica_matrizes(a, b, c, la, ca, cb);
+
+
+    printf("Matriz C:\n");
+    for(i = 0; i < la; i++){
+        for(j = 0; j < cb; j++){
+            printf("%d ", c[i*cb + j]);
+        }
+        printf("\n");
+    }
+
+
+    free(a);
+    free(b);
+    free(c);
+
+
+    return 0;
+}
+
+
+--------------------------- 
+Questão 21:   
+
+
+No item C:
+int f(char *data){
+  void *s;
+  s = malloc(50);
+  int size = strlen(data);
+  if (size > 50)
+  return(-1);
+  free(s);
+  return 0;
+
+
+No programa citado há Memory Leak, pois existem situações (size>50) em que o comando ‘free()’ não é executado. Consequentemente, neste caso, a memória não é liberada após não ser mais necessária.
+--------------------------- 
+Questão 22:
+15 13 0 
+--------------------------- 
+Questão 23:
+IV. I, apenas.
+O código em questão possui dois caminhos diferentes a serem seguidos para descobrir em qual posição está um número inteiro dentro de um vetor.
+
+
+A I está correta, pois de acordo com os parâmetros estabelecidos: funcao1(vetor, 15), funcao2(vetor, 15, 0, TAM-1)), o valor 15 se encontra na sétima posição, fazendo com que ambas funções retornem o número 7.
+A II está errada, pois, no pior dos casos a funcao2 seria mais rápida, de acordo com o exemplo, se o valor a ser procurado fosse o ‘19’, a funcao1 teria que fazer 9 repetições antes de encontrar a posição. Já a funcao2, apenas 5, pois que parte de um valor central.
+A III está errada, pois a funcao2 implementa uma estratégia recursiva na concepção do algoritmo, não iterativa. O algoritmo recursivo sempre terá uma chamada a si mesmo. O algoritmo iterativo nunca terá isso.
+--------------------------- 
+Questão 24: 
+
+
+--------------------------- 
+Questão 25:   
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/time.h>
+
+
+
+
+int main() {
+    int l, c, p;  //altura, largura e profundidade
+
+
+    printf("Informe o tamanho da altura, largura e profundidade da matriz, respectivamente: ");
+    scanf("%d %d %d", &l, &c, &p);
+
+
+    int num_elementos = l*c*p; //numero de elementos da matriz
+
+
+    int ***matriz;
+    matriz = (int ***)malloc(l*sizeof(int**));
+
+
+    int **matriz_c = (int **)malloc(c*p*sizeof(int*));
+    matriz[0] = matriz_c;
+
+
+    int *matriz_p = (int *)malloc(num_elementos*sizeof(int));
+    matriz_c[0] = matriz_p;
+
+
+    for(int i=1; i<l; i++){
+        matriz[i]= matriz[i-1]+c;
+    }
+
+
+    for(int i=1; i<c*p; i++){
+        matriz_c[i]= matriz_c[i-1]+p;
+    }
+
+
+    //Lê os valores digitados
+    printf("Informe os valores:\n");
+    for(int i; i<l; i++){
+        for(int j; j<c; j++){
+            for(int k; k<p; k++){
+                scanf("%d", &matriz[i][j][k]);
+            }
+        }
+    }
+
+
+
+
+    printf("Abaixo os valores:\n");
+    for(int i; i<l; i++){
+        for(int j; j<c; j++){
+            for(int k; k<p; k++){
+                printf("%d ", matriz[i][j][k]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+
+
+
+
+
+
+
+
+    return 0;
+}
