@@ -777,7 +777,7 @@ int main()
 
 	// otra forma de imprimir os bits da variável estado
 	for(int i = 63; i >= 0; i--) {
-	        if(estado & (1 << i)) {
+	        if(estado & (1ul << i)) {
 	            printf("1");
 	        } else {
 	            printf("0");
