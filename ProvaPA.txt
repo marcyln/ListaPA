@@ -710,11 +710,11 @@ unsigned long codificaMatriz(unsigned char m[][8], int nl){
 	unsigned long estado = 0;
 
 	for(int i=0; i<nl; i++){
-    	for(int j=0; j<8; j++){
-            estado = (estado << 1) | m[i][j];	// compara a variável estado com cada elemento da matriz, através do operador "|" (OU bit-a-abit)
+    		for(int j=0; j<8; j++){
+            		estado = (estado << 1) | m[i][j];    // compara a variável estado com cada elemento da matriz, através do operador "|" (OU bit-a-abit)
                                             	// se um dos bits correspondente for 1, o resultado será 1. Caso contrário, será 0.
                                             	// Logo depois, ele desloca todos os bits da variável estado uma casa a direita.
-    	}
+    		}
 	}
 
     return estado;
@@ -763,16 +763,16 @@ int main()
 
     	for(bit=128; bit; bit = bit >> 1){
         	if(px[i] & bit){
-            	printf("1");
+            		printf("1");
         	}
         	else{
-            	printf("0");
+            		printf("0");
         	}
         }    
 
     	if(i!=0){
-        		printf("|");
-    	}
+        	printf("|");
+    		}
 	}
 	return 0;
 }
