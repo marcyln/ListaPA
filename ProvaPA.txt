@@ -80,26 +80,41 @@ variável “idade" recebe o conteúdo de “p5”, e imprime na tela o valor 27
 
 
 --------------------------- 
+
 Questão 5:   
 O código está sendo executado apropriadamente, atribuindo o endereço do primeiro elemento do array ‘vet’ ao ponteiro ‘f’ e alterando os 
 valores junto ao contador ‘i’.
+
 --------------------------- 
+
 Questão 6:   
 ‘*(pulo + 2);’ refere-se ao terceiro elemento do vetor.
+
 --------------------------- 
+
 Questão 7:   
 ‘p = mat +1’ é válida pois dita que o ponteiro ‘p’ recebe o endereço do segundo elemento do vetor ‘mat’, ou seja, ‘mat[1]’
 ‘p = mat’ é válida pois dita que o ponteiro ‘p’ recebe o endereço do primeiro elemento do vetor ‘mat’, ou seja, ‘mat[0]’
 ‘p = mat’, semelhante a anterior.
 ‘x = (*mat)’ é válida pois x recebe o conteúdo do primeiro elemento de ‘mat’.
+
+
 --------------------------- 
+
 Questão 8:   
 O primeiro programa imprime cada item do vetor ‘vet’, do primeiro ao último, no formato decimal. ‘4 9 13’.
 O segundo programa imprime cada item do vetor ‘vet’, do primeiro ao último, no formato hexadecimal. ‘4 9 D’.
+
+
 --------------------------- 
+
 Questão 9:   
 O programa não será compilado apropriadamente, ocasionando uma saída ‘ERROR!’
+
+
 --------------------------- 
+
+
 Questão 10:
 A saída desse programa será um alerta de erro de compilação porque usa incorretamente o ponteiro para constante. ‘int const *x = 3’; 
 está tentando atribuir um valor inteiro à variável ponteiro ‘x’, o que não é permitido. Além disso, quando tenta modificar o valor 
@@ -108,6 +123,7 @@ Para corrigir o problema, é necessário modificar a declaração de ‘x’ par
 
 
 --------------------------- 
+
 Questão 11: 
 #include <stdio.h>
 
@@ -142,6 +158,7 @@ int main() {
     O endereço foi aumentando em sequência, de acordo com a posição do
     item no vetor, só que dessa vez, na base hexadecimal.*/
 }
+
 
 
 --------------------------- 
@@ -235,6 +252,8 @@ alocada não é liberada e ocorre um vazamento de memória.
 
 
 --------------------------- 
+
+
 Questão 14:   
 Um ponteiro para uma função é um ponteiro que armazena o endereço de memória de uma função e pode ser usado para chamar a mesma. Sua 
 sintaxe é: 
@@ -334,6 +353,8 @@ int main() {
 
 
 --------------------------- 
+
+
 Questão 16:   
 #include <stdio.h>
 #include <stdlib.h>
@@ -380,7 +401,9 @@ int main() {
 }
 
 
+
 --------------------------- 
+
 Questão 17:
 #include <stdio.h>
 #include <stdlib.h>
@@ -507,6 +530,8 @@ int main() {
 
 
 --------------------------- 
+
+
 Questão 19:   
 #include <stdio.h>
 #include <stdlib.h>
@@ -543,6 +568,8 @@ int main() {
     free(v2);
     free(v3);
 }
+
+
 --------------------------- 
 Questão 20:   
 #include <stdio.h>
@@ -634,6 +661,7 @@ int main(void){
 
 
 --------------------------- 
+
 Questão 21:   
 
 
@@ -650,9 +678,14 @@ int f(char *data){
 
 No programa citado há Memory Leak, pois existem situações (size>50) em que o comando ‘free()’ não é executado. Consequentemente, neste 
 caso, a memória não é liberada após não ser mais necessária.
+
+
+
 --------------------------- 
 Questão 22:
 15 13 0 
+
+
 --------------------------- 
 Questão 23:
 IV. I, apenas.
@@ -666,8 +699,83 @@ A II está errada, pois, no pior dos casos a funcao2 seria mais rápida, de acor
 a funcao1 teria que fazer 9 repetições antes de encontrar a posição. Já a funcao2, apenas 5, pois que parte de um valor central.
 A III está errada, pois a funcao2 implementa uma estratégia recursiva na concepção do algoritmo, não iterativa. O algoritmo recursivo 
 sempre terá uma chamada a si mesmo. O algoritmo iterativo nunca terá isso.
+
+
 --------------------------- 
 Questão 24: 
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned long codificaMatriz(unsigned char m[][8], int nl){
+	unsigned long estado = 0;
+
+	for(int i=0; i<nl; i++){
+    	for(int j=0; j<8; j++){
+            estado = (estado << 1) | m[i][j];	// compara a variável estado com cada elemento da matriz, através do operador "|" (OU bit-a-abit)
+                                            	// se um dos bits correspondente for 1, o resultado será 1. Caso contrário, será 0.
+                                            	// Logo depois, ele desloca todos os bits da variável estado uma casa a direita.
+    	}
+	}
+
+    return estado;
+}
+
+int main()
+{
+ 	unsigned char m[8][8] = {
+    	{1, 0, 1, 0, 1, 0, 1, 0},
+    	{0, 1, 0, 1, 0, 1, 0, 1},
+    	{1, 0, 1, 0, 1, 0, 1, 0},
+    	{0, 1, 0, 1, 0, 1, 0, 1},
+    	{1, 0, 1, 0, 1, 0, 1, 0},
+    	{0, 1, 0, 1, 0, 1, 0, 1},
+    	{1, 0, 1, 0, 1, 0, 1, 0},
+    	{1, 1, 0, 1, 0, 1, 0, 1}
+	};
+
+   	/*
+	//lê os valores da matriz
+	for(int i=0; i<8; i++){
+    	for(int j=0; j<8; j++){
+        		scanf("%c", &m[i][j]);
+    	}
+	}
+	*/
+
+	/*
+	//imprime na tela a matriz
+	for(int i=0; i<8; i++){
+    	for(int j=0; j<8; j++){
+        		printf("%d ", m[i][j]);
+    	}
+    	printf("\n");
+	}
+	*/
+
+	//imprime na tela todos os bits da variável estado
+	unsigned long estado = codificaMatriz(m, 8);
+	unsigned char *px;
+	px = &estado;
+
+	unsigned char bit;
+
+	for(int i=7; i>=0; i--){
+
+    	for(bit=128; bit; bit = bit >> 1){
+        	if(px[i] & bit){
+            	printf("1");
+        	}
+        	else{
+            	printf("0");
+        	}
+        }    
+
+    	if(i!=0){
+        		printf("|");
+    	}
+	}
+	return 0;
+}
 
 
 --------------------------- 
@@ -676,67 +784,102 @@ Questão 25:
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
+
+void desalocarMatriz3D(int ***m){
+    //libera as colunas da matriz
+    free(m[0][0]);
+    m[0][0] = NULL; //preenche o endereço de memória com o número zero, prevenindo erros
+
+    //libera as linhas da matriz, vetor auxiliar
+    free(m[0]);
+    m[0] = NULL;
+
+    //libera os planos da matriz, vetor auxiliar
+    free(m);
+    m = NULL;
+
+}
 
 
+int main()
+{
+  int np, nl, nc; // np = plano (profundidade); nl = linha; nc = coluna;
 
+    //Recebe do usuário as dimensões da matriz
+    printf("Informe as dimensoes da matriz (profundidade, altura e largura, respectivamente): ");
+    scanf("%d %d %d", &np, &nl, &nc);
 
-int main() {
-    int l, c, p;  //altura, largura e profundidade
+    //alocação da matriz
+    int ***m = (int***)malloc(np *sizeof(int**));
 
+    m[0] = (int**) malloc(np*nl*sizeof(int*));
 
-    printf("Informe o tamanho da altura, largura e profundidade da matriz, respectivamente: ");
-    scanf("%d %d %d", &l, &c, &p);
+    m[0][0] = (int *) malloc(np*nl*nc*sizeof(int));
 
-
-    int num_elementos = l*c*p; //numero de elementos da matriz
-
-
-    int ***matriz;
-    matriz = (int ***)malloc(l*sizeof(int**));
-
-
-    int **matriz_c = (int **)malloc(c*p*sizeof(int*));
-    matriz[0] = matriz_c;
-
-
-    int *matriz_p = (int *)malloc(num_elementos*sizeof(int));
-    matriz_c[0] = matriz_p;
-
-
-    for(int i=1; i<l; i++){
-        matriz[i]= matriz[i-1]+c;
+    for(int k=1; k<np; k++){
+        m[k] = m[k-1] + nl;
     }
 
-
-    for(int i=1; i<c*p; i++){
-        matriz_c[i]= matriz_c[i-1]+p;
+    for(int i=1; i<(np*nl); i++){
+        m[0][i] = m[0][i-1] + nc;
     }
 
-
-    //Lê os valores digitados
-    printf("Informe os valores:\n");
-    for(int i; i<l; i++){
-        for(int j; j<c; j++){
-            for(int k; k<p; k++){
-                scanf("%d", &matriz[i][j][k]);
+    //preenchimento da matriz com dados do usuário
+    for(int k=0; k<np; k++){
+        for(int i=0; i<nl; i++ ){
+            for(int j=0; j<nc; j++){
+                scanf("%d", &m[k][i][j]);
             }
         }
+
     }
 
-
-
-    printf("Abaixo os valores:\n");
-    for(int i; i<l; i++){
-        for(int j; j<c; j++){
-            for(int k; k<p; k++){
-                printf("%d ", matriz[i][j][k]);
+    //imprime a matriz no terminal
+    printf("Matriz:\n");
+    for(int k=0; k<np; k++){
+        for(int i=0; i<nl; i++ ){
+            for(int j=0; j<nc; j++){
+                printf("%d ", m[k][i][j]);
             }
             printf("\n");
         }
         printf("\n");
     }
 
+    //permitir ao usuário escolher um dos planos da matriz para imprimir
+    int p;
+
+    printf("Informe o plano que deseja imprimir: ");
+    scanf("%d", &p);
+
+    for(int i=0; i<nl; i++){
+        for(int j=0; j<nc; j++){
+            printf("%d ", m[p][i][j]);
+        }
+        printf("\n");
+    }
+    
+    //alterar um termo da matriz
+    int mod;
+
+    printf("Deseja alterar algum termo da matriz:\nSIM: 1\nNAO: 0\n");
+    scanf("%d", &mod);
+
+    if(mod == 1){
+        int term;
+        int pA, lA, cA;
+        printf("Informe qual termo será alterado: ");
+        scanf("%d %d %d", &pA, &lA, &cA);
+        printf("Informe o novo termo: ");
+        scanf("%d", &term);
+
+        m[pA][lA][cA]=term;
+    }
+
+    //desalocar o espaço de memória da matriz;
+    desalocarMatriz3D(m);
+
 
     return 0;
 }
+
