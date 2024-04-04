@@ -761,19 +761,33 @@ int main()
 
 	for(int i=7; i>=0; i--){
 
-    	for(bit=128; bit; bit = bit >> 1){
-        	if(px[i] & bit){
-            		printf("1");
-        	}
-        	else{
-            		printf("0");
-        	}
-        }    
-
-    	if(i!=0){
-        	printf("|");
-    		}
+	    	for(bit=128; bit; bit = bit >> 1){
+	        	if(px[i] & bit){
+	            		printf("1");
+	        	}else{
+	            		printf("0");
+	        	}
+	        }    
+	    	if(i!=0){
+	        	printf("|");
+	    	}
 	}
+
+	printf("\n");
+
+	// otra forma de imprimir os bits da variável estado
+	for(int i = 63; i >= 0; i--) {
+	        if(estado & (1 << i)) {
+	            printf("1");
+	        } else {
+	            printf("0");
+	        }
+	
+	        if(i % 8 == 0 && i!=0) {
+	            printf("|");
+	        }
+     }
+
 	return 0;
 }
 
